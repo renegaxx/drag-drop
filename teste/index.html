@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #918492;
+            color: white;
+            text-align: center;
+        }
+    }
+</style>
+<body>
+
+    <div class="container">
+        <div id="box1" class="box" draggable="true">CAIXA 1</div>
+        <div id="box2" class="box" draggable="true">CAIXA 2</div>
+    </div>
+
+    <script>
+        // coletando dos IDs do nosso html
+        const box1 = document.getElementById('box1')
+        const box2 = document.getElementById('box2')
+        // dataTransfer = guarda o texto enquanto estamos arrastando setData = o que fazer com esse dado, para o setData funcionar precisamos passar para ele o tipo do texto e onde está o conteúdo, então passamos que o tipo é texto e o conteúdo está na box1
+        box1.addEventListener('dragstart', function(event){
+            event.dataTransfer.setData('text/plain','box1')
+        })
+
+        box2.addEventListener('dragstart', function(event){
+            event.dataTransfer.setData('text/plain','box2')
+        })
+
+        box1.addEventListener('dragover', function(event){
+            // o prevenDefault impede qiue a página seja recarregada automaticamente
+            event.prevenDefault();
+        })
+
+        box2.addEventListener('dragover', function(event){
+            // o prevenDefault impede qiue a página seja recarregada automaticamente
+            event.prevenDefault();
+        })
+
+        box1.addEventListener('drop',function(event){
+            const id = event.dataTransfer.getData('text')
+            if (id === 'box2') {
+                /* parentNode = deixa o elemento em somente a leitura
+                inserBefore = coloca um antes do outro */
+                box1.parentNode.inserBefore(box2, box1);
+            }
+        })
+
+        box2.addEventListener('drop', function(event){
+            const id = event.dataTransfer.getData('text')
+            if (id === 'box1'){
+                box2.parentNode.insertBefore(box1, box2);
+            }
+        })
+    </script>
+</body>
+</html>

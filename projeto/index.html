@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bacana.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    
+    <title>TRELÃO</title>
+</head>
+<body>
+
+    <video autoplay muted loop id="background-video">
+        <source src="galaxy_-_106886 (720p).mp4" type="video/mp4">
+        
+    </video>
+    <div class="video-content">
+        <div id="container">
+            <div class="texto"><h1>MEU TRELLO</h1></div>
+            <div class="tudo">
+                <div class="coluna" id="fazer">
+                <h2>A fazer</h2>
+                <ul class="tarefas" id="tarefas-fazer"></ul>
+            </div>
+            <div class="coluna" id="fazendo">
+                <h2>Fazendo</h2>
+                <ul class="tarefas" id="tarefas-fazendo"></ul>
+            </div>
+            <div class="coluna" id="feito">
+                <h2>feito</h2>
+                <ul class="tarefas" id="tarefas-feito"></ul>
+            </div>
+            
+            </div>
+            
+            <form id="adicionar-tarefa">
+                <label for="nova-tarefa">Nova Tarefa:</label>
+                <input type="text" id="nova-tarefa" name="nova-tarefa">
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
